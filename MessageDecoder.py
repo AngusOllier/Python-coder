@@ -1,12 +1,12 @@
 alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 key = 3
 
-def encode( message ):
+def decode(message):
   newMessage = ''
   for character in message:
     if character in alphabet:
       position = alphabet.find(character)
-      new_position = (position + key) % 52
+      new_position = (position - key) % 52
       new_character = alphabet[new_position]
       print('The new character is: ',new_character)
       newMessage += new_character
@@ -14,8 +14,7 @@ def encode( message ):
       newMessage += character
   return newMessage
 
-message = input('Please enter a message: ')
+message = input('Please enter your code: ')
 
-new_message = encode(message)
-
-print(new_message)
+decoded_message = decode(message)
+print(decoded_message)
