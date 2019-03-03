@@ -19,3 +19,4 @@ message = input('Please enter a message: ')
 new_message = encode(message)
 
 print(new_message)
+
