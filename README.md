@@ -15,7 +15,3 @@ Install required librries
 Run locally
 
     python application.py
-
-
-
-Coder and decoder using caesar cypher
