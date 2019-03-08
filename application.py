@@ -20,13 +20,15 @@ def transform(message, action, key=3):
     newMessage = ''
     for character in message:
         position = alphabet.find(character)
-        if 'encode' == action:
-            new_position = (position + key) % 52
+        if position >= 0:
+            if 'encode' == action:
+                new_position = (position + key) % 52
+            else:
+                new_position = (position - key) % 52
+            new_character = alphabet[new_position]
+            newMessage += new_character
         else:
-            new_position = (position - key) % 52
-        new_character = alphabet[new_position]
-        newMessage += new_character
-        newMessage += character
+            newMessage += character
     return newMessage
 
 
