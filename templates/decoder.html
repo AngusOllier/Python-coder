@@ -1,24 +1,40 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Angus' Message Encryption Service </title>
-		<link rel="stylesheet" type="text/css" href="/static/style.css">
-	</head>
-	<body>
-		<h1>Angus' Message Encryption Service </h1>
-		<p>Enter the message to be encrypted</p>
-		<form method="POST" action="/transform">
+
+<head>
+	<title>The Ultimate Message Encryption Service </title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+	<h1>The Ultimate Message Encryption Service </h1>
+	<form method="POST" action="/transform">
+		<div>
+			<p>Enter the message to be encrypted or decrypted</p>
 			<input type="text" name="message"></input>
+		</div>
+		<p>Select action</p>
+		<div>
+			<input type="radio" id="encrypt_button" name="action" value="encrypt"></input>
+			<label for="encrypt_button">Encrypt</label>
+		</div>
+		<div>
+			<input type="radio" id="decrypt_button" name="action" value="decrypt"></input>
+			<label for="decrypt_button">Decrypt</label>
+		</div>
+		<div id="submit-div">
 			<input type="submit" value="Submit"></input>
-		</form>
-		{% if transformed %}
-		<h2>{% if action == 'encode' %} 
-			Encoded
-			{% else %}
-			Decoded 
-			{% endif %} 
-			message</h2>
-		<p>{{ transformed }}</p>
+		</div>
+	</form>
+	{% if transformed %}
+	<h2>{% if action == 'encrypt' %}
+		Encrypted
+		{% else %}
+		Decrypted
 		{% endif %}
-	</body>
+		message</h2>
+	<p>{{ transformed }}</p>
+	{% endif %}
+</body>
+
 </html>

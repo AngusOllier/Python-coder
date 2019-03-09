@@ -11,7 +11,7 @@ def codec():
 
 @app.route('/transform', methods=['POST'])
 def do_codec():
-    action = 'encode'
+    action = request.form['action']
     transformed = transform(request.form['message'], action)
     return render_template('decoder.html', action=action, transformed=transformed)
 
@@ -21,7 +21,7 @@ def transform(message, action, key=3):
     for character in message:
         position = alphabet.find(character)
         if position >= 0:
-            if 'encode' == action:
+            if 'encrypt' == action:
                 new_position = (position + key) % 52
             else:
                 new_position = (position - key) % 52
