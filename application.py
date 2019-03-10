@@ -1,15 +1,15 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-@app.route('/codec')
+@application.route('/codec')
 def codec():
     return render_template('decoder.html')
 
 
-@app.route('/transform', methods=['POST'])
+@application.route('/transform', methods=['POST'])
 def do_codec():
     action = request.form['action']
     transformed = transform(request.form['message'], action)
@@ -33,4 +33,4 @@ def transform(message, action, key=3):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    application.run()
