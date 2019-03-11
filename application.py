@@ -4,12 +4,12 @@ application = Flask(__name__)
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-@application.route('/codec')
+@application.route('/', methods=['GET'])
 def codec():
     return render_template('decoder.html')
 
 
-@application.route('/transform', methods=['POST'])
+@application.route('/', methods=['POST'])
 def do_codec():
     action = request.form['action']
     transformed = transform(request.form['message'], action)

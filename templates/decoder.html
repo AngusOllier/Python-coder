@@ -8,14 +8,14 @@
 
 <body>
 	<h1>The Ultimate Message Encryption Service </h1>
-	<form method="POST" action="/transform">
+	<form method="POST" action="/">
 		<div>
 			<p>Enter the message to be encrypted or decrypted</p>
-			<input type="text" name="message"></input>
+			<textarea name="message" rows="10" cols="30"> </textarea> 
 		</div>
 		<p>Select action</p>
 		<div>
-			<input type="radio" id="encrypt_button" name="action" value="encrypt"></input>
+			<input type="radio" id="encrypt_button" name="action" value="encrypt" checked="true"></input>
 			<label for="encrypt_button">Encrypt</label>
 		</div>
 		<div>
