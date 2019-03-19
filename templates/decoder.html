@@ -7,18 +7,31 @@
 </head>
 
 <body>
-	<h1><a href="/" >The Ultimate Message Encryption Service</a></h1>
-	<form method="POST" action="/encrypt">
-			<p>Unencrypted</p>
-			<textarea name="message" rows="10" cols="30">{{ message }}</textarea>
-			<input type="submit" value="Encrypt"></input>
-	</form>
-	<form method="POST" action="/decrypt">
-			<p>Encrypted</p>
-			<textarea name="encrypted" rows="10" cols="30">{{ encrypted }}</textarea>
-			<input type="submit" value="Decrypt"></input>
+	<div id="header">
+		<h1><a href="/">The Ultimate Message Encryption Service</a></h1>
+	</div>
+	<div id="container">
+		<div id="encrypt-panel">
+			<form method="POST" action="/encrypt">
+				<div>
+					<h3>Unencrypted</h3>
+					<textarea name="message" rows="10" cols="50">{{ message }}</textarea>
+				</div>
+				<div><input type="submit" value="Encrypt"></input></div>
+			</form>
 		</div>
-	</form>
+		<div id="decrypt-panel">
+			<form method="POST" action="/decrypt">
+				<div>
+					<h3>Encrypted</h3>
+					<textarea name="encrypted" rows="10" cols="50">{{ encrypted }}</textarea>
+				</div>
+				<div>
+					<input type="submit" value="Decrypt"></input>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 
 </html>
