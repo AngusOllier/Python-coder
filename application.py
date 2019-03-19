@@ -1,19 +1,27 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 application = Flask(__name__)
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 @application.route('/', methods=['GET'])
-def codec():
-    return render_template('decoder.html')
+def show_form():
+    message = request.args.get('message', '')
+    encrypted = request.args.get('encrypted', '')
+    return render_template('decoder.html', message=message, encrypted=encrypted)
 
 
-@application.route('/', methods=['POST'])
-def do_codec():
-    action = request.form['action']
-    transformed = transform(request.form['message'], action)
-    return render_template('decoder.html', action=action, transformed=transformed)
+@application.route('/encrypt', methods=['POST'])
+def encrypt():
+    message = request.form['message']
+    transformed = transform(message, 'encrypt')
+    return redirect(url_for('show_form', message=message, encrypted=transformed))
+
+@application.route('/decrypt', methods=['POST'])
+def decrypt():
+    encrypted = request.form['encrypted']
+    transformed = transform(encrypted, 'decrypt')
+    return redirect(url_for('show_form', message=transformed, encrypted=encrypted))
 
 
 def transform(message, action, key=3):
