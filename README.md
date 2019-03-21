@@ -2,8 +2,6 @@
 
 Coder and decoder using Caesar Cypher.
 
-Note: Don't try to encode with decoder
-
 ## Running
 
 Python 3 is required
