@@ -6,7 +6,7 @@ Coder and decoder using Caesar Cypher.
 
 Python 3 is required
 
-Install required librries
+Install required libraries
 
     pip install -r requirements.txt
 
