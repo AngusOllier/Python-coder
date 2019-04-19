@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 application = Flask(__name__)
 
-alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !?'
 
 @application.route('/', methods=['GET'])
 def show_form():
@@ -30,9 +30,9 @@ def transform(message, action, key=3):
         position = alphabet.find(character)
         if position >= 0:
             if 'encrypt' == action:
-                new_position = (position + key) % 52
+                new_position = (position + key) % 55
             else:
-                new_position = (position - key) % 52
+                new_position = (position - key) % 55
             new_character = alphabet[new_position]
             newMessage += new_character
         else:
