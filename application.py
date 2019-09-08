@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 application = Flask(__name__)
 
-alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !?1234567890,.:()-='
+alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !?1234567890,.:()-=+{}[]*&^%£";<>#~@\/'
 
 @application.route('/', methods=['GET'])
 def show_form():
